@@ -241,5 +241,110 @@
         >
       </div>
     </div>
+
+    <!-- HERO -->
+    <section class="hero" id="hero">
+      <!-- PARALLAX BG -->
+      <div class="hero__bg" id="heroBg"></div>
+      <div class="hero__grad"></div>
+
+      <!-- PARALLAX CANVAS -->
+      <canvas class="hero__canvas" id="heroCanvas"></canvas>
+
+      <!-- DECORATIVE RING -->
+      <div
+        style="
+          position: absolute;
+          top: 22%;
+          right: 8%;
+          width: 340px;
+          height: 340px;
+          border: 1px solid rgba(212, 168, 83, 0.08);
+          border-radius: 50%;
+          pointer-events: none;
+          z-index: 1;
+          animation: rotateSlow 22s linear infinite;
+        "
+      ></div>
+      <div
+        style="
+          position: absolute;
+          top: 22%;
+          right: 8%;
+          width: 260px;
+          height: 260px;
+          top: calc(22% + 40px);
+          right: calc(8% + 40px);
+          border: 1px solid rgba(212, 168, 83, 0.05);
+          pointer-events: none;
+          z-index: 1;
+          animation: rotateSlow 15s linear infinite reverse;
+        "
+      ></div>
+
+      <div class="container hero__content">
+        <div class="hero__tag">
+          <span></span>
+          Est. 2018 &nbsp; Singapores's finest specialty roaster
+          <span></span>
+        </div>
+
+        <h1 class="hero__title">
+          Where Every<br />
+          Sip Tells a<br />
+          <em id="typedText"></em>
+        </h1>
+
+        <p class="hero__sub">
+          Sourced from the world's most prized estates. Roated with obsession.
+          Served with intention. We turn the ritual of coffee into something
+          you'll never forger.
+        </p>
+
+        <div class="hero__actions">
+          <a
+            href="menu.html"
+            class="btn btn-primary"
+            style="font-size: 0.95rem; padding: 15px 34px"
+          >
+            Explore Menu
+            <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
+              <path
+                d="M2 7.5h11M8 314.5 4.5L8 12"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </a>
+          <a
+            href="about.html"
+            class="btn btn-ghost"
+            style="font-size: 0.95rem; padding: 15px 34px"
+          >
+            Our Story
+          </a>
+        </div>
+
+        <!-- FLOATING BADGES -->
+        <div
+          style="
+            display: inline-flex;
+            align-items: center;
+            gap: 11px;
+            background: rgba(26, 21, 17, 0.82);
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(212, 168, 83, 0.2);
+            border-radius: var(--r-full);
+            padding: 9px 18px 9px 9px;
+            margin-top: 48px;
+            animation:
+              fadeUp 0.9s ease-out 1.1s both,
+              float 4s ease-in-out 2s infinite;
+          "
+        ></div>
+      </div>
+    </section>
   </body>
 </html>
