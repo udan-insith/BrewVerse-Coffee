@@ -42,3 +42,25 @@
   --t-mid: 0.36s;
   --t-slow: 0.62s;
 }
+
+[data-theme="light"] {
+  --c-bg: #f8f4ed;
+  --c-bg-alt: #efe8da;
+  --c-bg-card: #ffffff;
+  --c-bg-raised: #fff9f2;
+  --c-gold: #7a5020;
+  --c-gold-glow: rgba(122, 80, 32, 0.1);
+  --c-gold-hover: #9b6a30;
+  --c-gold-dark: #5c3a14;
+  --c-cream: #1c1510;
+  --c-cream-dim: rgba(28, 21, 16, 0.72);
+  --c-muted: #8a7560;
+  --c-muted-light: #6b5e4e;
+  --c-border: rgba(122, 80, 32, 0.12);
+  --c-border-strong: rgba(122, 80, 32, 0.24);
+  --c-shadow: rgba(0, 0, 0, 0.12);
+  --c-shadow-gold: rgba(122, 80, 32, 0.18);
+  --c-glass: rgba(255, 252, 248, 0.92);
+  --c-navbar: rgba(248, 244, 237, 0.96);
+  --c-overlay: rgba(248, 244, 237, 0.82);
+}
