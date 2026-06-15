@@ -1,3 +1,44 @@
 @import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400;1,9..144,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=Cormorant+Garamond:ital,wght@1,300;1,400;1,500&display=swap");
 
 /* CSS CUSTOM PROPERTIES - DARK THEME (DEFAULT) */
+:root {
+  --c-bg: #0a0806;
+  --c-bg-alt: #120f0b;
+  --c-bg-card: #1a1511;
+  --c-bg-raised: #22190f;
+  --c-gold: #d4a853;
+  --c-gold-glow: rgba(212, 168, 83, 0.83);
+  --c-gold-hover: #e8bf6e;
+  --c-gold-dark: #9e7c3a;
+  --c-cream: #f6f0e4;
+  --c-cream-dim: rgba(246, 240, 228, 0.72);
+  --c-muted: #6b5e4e;
+  --c-muted-light: #8a7560;
+  --c-border: rgba(212, 168, 83, 0.22);
+  --c-border-strong: rgba(212, 168, 83, 0.22);
+  --c-shadow: rgba(0, 0, 0, 0.55);
+  --c-shadow-gold: rgba(212, 168, 83, 0.28);
+  --c-glass: rgba(26, 21, 17, 0.88);
+  --c-navbar: rgba(10, 8, 6, 0.94);
+  --c-overlay: rgba(10, 8, 6, 0.78);
+  --c-error: #e05252;
+  --c-success: #52b77a;
+
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "DM Sans", system-ui, sans-serif;
+  --font-italic: "Cormorant Garamond", Georgia, serif;
+
+  --max-w: 1260px;
+  --gutter: clamp(16px, 4vw, 32px);
+  --r-sm: 8px;
+  --r-md: 14px;
+  --r-lg: 22px;
+  --r-xl: 36px;
+  --r-full: 9999px;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --t-fast: 0.18s;
+  --t-mid: 0.36s;
+  --t-slow: 0.62s;
+}
