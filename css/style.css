@@ -233,3 +233,67 @@ p {
   grid-template-columns: repeat(4, 1fr);
   gap: 24px;
 }
+
+/* BUTTONS */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 13px 30px;
+  border-radius: var(--r-full);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  transition: all var(--t-mid) var(--ease-out);
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.08);
+  opacity: 0;
+  transition: opacity var(--t-fast);
+}
+
+.btn:hover::after {
+  opacity: 1;
+}
+
+.btn-primary {
+  background: var(--c-gold);
+  color: #0a0806;
+  box-shadow: 0 4px 18px var(--c-shadow-gold);
+}
+
+.btn-primary:hover {
+  background: var(--c-gold-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px var(--c-shadow-gold);
+}
+
+.btn-outline {
+  border: 1.5px solid var(--c-border-strong);
+  color: var(--c-gold);
+}
+
+.btn-outline:hover {
+  background: var(--c-gold);
+  color: #0a0806;
+  border-color: var(--c-gold);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px var(--c-shadow-gold);
+}
+
+.btn-ghost {
+  border: 1.5px solid var(--c-border);
+  color: var(--c-cream-dim);
+}
+
+.btn-ghost:hover {
+  border-color: var(--c-gold);
+  color: var(--c-gold);
+}
