@@ -458,3 +458,68 @@ p {
   font-size: 19px;
   transition: transform var(--t-mid) var(--ease-bounce);
 }
+
+.logo:hover .logo__cup {
+  transform: rotate(18deg) scale(1.12);
+}
+
+.logo__text {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.22rem;
+  font-weight: 600;
+  color: var(--c-cream);
+  line-height: 1;
+}
+
+.logo__text em {
+  color: var(--c-gold);
+  font-style: normal;
+}
+
+/* NAV LINKS */
+.navbar__links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-link {
+  position: relative;
+  padding: 8px 14px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--c-cream-dim);
+  border-radius: var(--r-sm);
+  transition: all var(--t-fast);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.nav-link:hover {
+  color: var(--c-cream);
+  background: var(--c-gold-glow);
+}
+
+.nav-link:active {
+  color: var(--c-gold);
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 3px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: calc(100% - 28px);
+  height: 1.5px;
+  background: var(--c-gold);
+  border-radius: var(--r-full);
+  transition: transform var(--t-fast) var(--ease-out);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  transform: translateX(-50%) scaleX(1);
+}
