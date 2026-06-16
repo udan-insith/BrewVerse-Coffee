@@ -410,3 +410,51 @@ p {
 #themeCurtain.dropping {
   animation: curtainDrop 0.85s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
+
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 22px 0;
+  transition: all var(--t-mid) var(--ease-out);
+}
+
+.navbar.scrolled {
+  padding: 13px 0;
+  background: var(--c-navbar);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid var(--c-border);
+  box-shadow: 0 6px 36px var(--c-shadow);
+}
+
+.navbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+/* LOGO */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  z-index: 1002;
+  flex-shrink: 0;
+}
+
+.logo__cup {
+  width: 38px;
+  height: 38px;
+  background: var(--c-gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 19px;
+  transition: transform var(--t-mid) var(--ease-bounce);
+}
