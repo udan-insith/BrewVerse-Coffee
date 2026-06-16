@@ -128,3 +128,63 @@ button {
 ul {
   list-style: none;
 }
+
+/* TYPOGRAPHY */
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.025rem;
+  color: var(--c-cream);
+}
+
+h1 {
+  font-size: clamp(3rem, 6.5vw, 6rem);
+}
+h2 {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+}
+h3 {
+  font-size: clamp(1.35rem, 2.4vw, 1.9rem);
+}
+h4 {
+  font-size: clamp(1.05rem, 1.6vw, 1.35rem);
+}
+
+p {
+  color: var(--c-cream-dim);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.73rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--c-gold);
+  margin-bottom: 18px;
+}
+
+.eyebrow::before,
+.eyebrow::after {
+  content: "";
+  display: block;
+  width: 28px;
+  height: 1px;
+  background: var(--c-gold);
+  opacity: 0.55;
+}
+
+.italic-line {
+  font-family: var(--font-italic);
+  font-style: italic;
+  font-size: 1.25rem;
+  color: var(--c-gold);
+  letter-spacing: 0.01em;
+}
