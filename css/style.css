@@ -381,3 +381,32 @@ p {
     opacity: 0;
   }
 }
+
+/* THEME CURTAIN */
+#themeCurtain {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(160deg, #d4a853 0%, #9e7c3a 100%);
+  z-index: 99998;
+  pointer-events: none;
+  transform: translateY(-105%);
+}
+
+@keyframes curtainDrop {
+  0% {
+    transform: translateY(-105%);
+  }
+  42% {
+    transform: translateY(0%);
+  }
+  58% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(105%);
+  }
+}
+
+#themeCurtain.dropping {
+  animation: curtainDrop 0.85s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
