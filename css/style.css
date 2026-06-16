@@ -602,3 +602,47 @@ p {
   flex-shrink: 0;
   transition: transform var(--t-fast);
 }
+
+.dropdown-item:hover .dropdown-icon {
+  transform: scale(1.12);
+}
+
+.dropdown-label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--c-cream);
+}
+
+.dropdown-sub {
+  font-size: 0.74rem;
+  color: var(--c-muted);
+  margin-top: 2px;
+}
+
+/* NAV ACTIONS */
+.navbar__actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* THEME TOGGLE */
+.theme-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--r-full);
+  background: var(--c-gold-glow);
+  border: 1px solid var(--c-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  transition: all var(--t-fast);
+  color: var(--c-gold);
+  flex-shrink: 0;
+}
+
+.theme-btn:hover {
+  background: var(--c-gold);
+  color: #0a0806;
+}
