@@ -743,52 +743,194 @@
     </section>
 
     <!-- MENU SHOWCASE -->
-     <section class="menu-showcase section--alt">
-  <div class="container">
-    <div class="showcase-header">
-      <div>
-        <div class="eyebrow reveal">This Week's Stars</div>
-        <h2 class="reveal d1">Crafted <em style="font-style:italic;color:var(--c-gold);">Signatures</em></h2>
-      </div>
-      <a href="menu.html" class="btn btn-outline reveal">View Full Menu →</a>
-    </div>
-  </div>
- 
-  <!-- Draggable scroll strip -->
-  <div class="menu-strip" id="menuStrip">
- 
-    <div class="menu-card reveal">
-      <div class="menu-card__media">
-        <img class="menu-card__img"
-          src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=500&q=80"
-          alt="Noir Espresso" loading="lazy"/>
-      </div>
-      <div class="menu-card__body">
-        <div class="menu-card__tag">Signature</div>
-        <div class="menu-card__name">Noir Espresso</div>
-        <p class="menu-card__desc">Double shot, dark roast. Thick crema with notes of dark chocolate and cedar.</p>
-        <div class="menu-card__foot">
-          <span class="menu-card__price">$5.50</span>
-          <button class="add-btn" onclick="addToast('Noir Espresso added to cart ☕')">+</button>
+    <section class="menu-showcase section--alt">
+      <div class="container">
+        <div class="showcase-header">
+          <div>
+            <div class="eyebrow reveal">This Week's Stars</div>
+            <h2 class="reveal d1">
+              Crafted
+              <em style="font-style: italic; color: var(--c-gold)"
+                >Signatures</em
+              >
+            </h2>
+          </div>
+          <a href="menu.html" class="btn btn-outline reveal"
+            >View Full Menu →</a
+          >
         </div>
       </div>
-    </div>
- 
-    <div class="menu-card reveal d1">
-      <div class="menu-card__media">
-        <img class="menu-card__img"
-          src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=500&q=80"
-          alt="Honey Oat Latte" loading="lazy"/>
-      </div>
-      <div class="menu-card__body">
-        <div class="menu-card__tag">Best Seller</div>
-        <div class="menu-card__name">Honey Oat Latte</div>
-        <p class="menu-card__desc">Silky oat milk, house honey syrup, single-origin Ethiopian espresso.</p>
-        <div class="menu-card__foot">
-          <span class="menu-card__price">$7.80</span>
-          <button class="add-btn" onclick="addToast('Honey Oat Latte added to cart 🍯')">+</button>
+
+      <!-- Draggable scroll strip -->
+      <div class="menu-strip" id="menuStrip">
+        <div class="menu-card reveal">
+          <div class="menu-card__media">
+            <img
+              class="menu-card__img"
+              src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=500&q=80"
+              alt="Noir Espresso"
+              loading="lazy"
+            />
+          </div>
+          <div class="menu-card__body">
+            <div class="menu-card__tag">Signature</div>
+            <div class="menu-card__name">Noir Espresso</div>
+            <p class="menu-card__desc">
+              Double shot, dark roast. Thick crema with notes of dark chocolate
+              and cedar.
+            </p>
+            <div class="menu-card__foot">
+              <span class="menu-card__price">$5.50</span>
+              <button
+                class="add-btn"
+                onclick="addToast('Noir Espresso added to cart ☕')"
+              >
+                +
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card reveal d1">
+          <div class="menu-card__media">
+            <img
+              class="menu-card__img"
+              src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=500&q=80"
+              alt="Honey Oat Latte"
+              loading="lazy"
+            />
+          </div>
+          <div class="menu-card__body">
+            <div class="menu-card__tag">Best Seller</div>
+            <div class="menu-card__name">Honey Oat Latte</div>
+            <p class="menu-card__desc">
+              Silky oat milk, house honey syrup, single-origin Ethiopian
+              espresso.
+            </p>
+            <div class="menu-card__foot">
+              <span class="menu-card__price">$7.80</span>
+              <button
+                class="add-btn"
+                onclick="addToast('Honey Oat Latte added to cart 🍯')"
+              >
+                +
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card reveal d2">
+          <div class="menu-card__media">
+            <img
+              class="menu-card__img"
+              src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?w=500&q=80"
+              alt="Nitro Cold Brew"
+              loading="lazy"
+            />
+          </div>
+          <div class="menu-card__body">
+            <div class="menu-card__tag">Cold Brew</div>
+            <div class="menu-card__name">Nitro Cold Brew</div>
+            <p class="menu-card__desc">
+              18-hour cold brew infused with nitrogen. Cascades like a dark
+              velvet stout.
+            </p>
+            <div class="menu-card__foot">
+              <span class="menu-card__price">$8.50</span>
+              <button
+                class="add-btn"
+                onclick="addToast('Nitro Cold Brew added to cart 🧊')"
+              >
+                +
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card reveal d3">
+          <div class="menu-card__media">
+            <img
+              class="menu-card__img"
+              src="https://images.unsplash.com/photo-1578314675249-a6910f80cc4e?w=500&q=80"
+              alt="Rose Cardamom Flat White"
+              loading="lazy"
+            />
+          </div>
+          <div class="menu-card__body">
+            <div class="menu-card__tag">Seasonal</div>
+            <div class="menu-card__name">Rose Cardamom Flat White</div>
+            <p class="menu-card__desc">
+              Ristretto base, rose water, cardamom-infused whole milk. Floral
+              &amp; warming.
+            </p>
+            <div class="menu-card__foot">
+              <span class="menu-card__price">$8.00</span>
+              <button
+                class="add-btn"
+                onclick="addToast('Rose Cardamom Flat White added 🌹')"
+              >
+                +
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card reveal d4">
+          <div class="menu-card__media">
+            <img
+              class="menu-card__img"
+              src="https://images.unsplash.com/photo-1559496417-e7f25cb247f3?w=500&q=80"
+              alt="Yuzu Iced Brew"
+              loading="lazy"
+            />
+          </div>
+          <div class="menu-card__body">
+            <div class="menu-card__tag">New</div>
+            <div class="menu-card__name">Yuzu Iced Brew</div>
+            <p class="menu-card__desc">
+              Cold brew concentrate, fresh yuzu zest, sparkling water, sea salt
+              foam.
+            </p>
+            <div class="menu-card__foot">
+              <span class="menu-card__price">$9.00</span>
+              <button
+                class="add-btn"
+                onclick="addToast('Yuzu Iced Brew added to cart 🍋')"
+              >
+                +
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card reveal d5">
+          <div class="menu-card__media">
+            <img
+              class="menu-card__img"
+              src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=500&q=80"
+              alt="Piccolo Noir"
+              loading="lazy"
+            />
+          </div>
+          <div class="menu-card__body">
+            <div class="menu-card__tag">Classic</div>
+            <div class="menu-card__name">Piccolo Noir</div>
+            <p class="menu-card__desc">
+              Ristretto, just a whisper of textured milk. Bold, beautiful, and
+              small.
+            </p>
+            <div class="menu-card__foot">
+              <span class="menu-card__price">$5.00</span>
+              <button
+                class="add-btn"
+                onclick="addToast('Piccolo Noir added to cart ☕')"
+              >
+                +
+              </button>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   </body>
 </html>
