@@ -1037,3 +1037,43 @@ p {
   padding-left: var(--gutter);
   padding-right: var(--gutter);
 }
+
+.menu-strip:active {
+  cursor: grabbing;
+}
+
+.menu-strip::-webkit-scrollbar {
+  display: none;
+}
+
+.menu-card {
+  flex: 0 0 268px;
+  scroll-snap-align: start;
+  background: var(--c-bg-card);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  transition: all var(--t-mid) var(--ease-out);
+}
+
+.menu-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--c-border-strong);
+  box-shadow: 0 22px 50px rgba(0, 0, 0, 0.32);
+}
+
+.menu-card__media {
+  overflow: hidden;
+  height: 195px;
+}
+
+.menu-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--t-slow);
+}
+
+.menu-card:hover .menu-card__img {
+  transform: scale(1.06);
+}
