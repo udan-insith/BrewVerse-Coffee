@@ -1137,3 +1137,12 @@ p {
   transform: scale(1.18) rotate(90deg);
   background: var(--c-gold-hover);
 }
+
+/* ABOUT TEASER */
+.about-teaser {
+  padding: 108px 0;
+}
+
+.about-img-wrap {
+  position: relative;
+}
