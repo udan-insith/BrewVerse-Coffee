@@ -1656,5 +1656,45 @@
         </div>
       </div>
     </section>
+
+    <!-- NEWSLETTER -->
+    <section class="newsletter">
+      <div class="container">
+        <div class="newsletter__inner">
+          <span class="newsletter__icon reveal">✉️</span>
+          <h2 class="newsletter__title reveal d1">Stay in the Loop</h2>
+          <p class="newsletter__text reveal d2">
+            New origins, limited releases, and brew guides — straight to your
+            inbox. We promise to only send things worth reading.
+          </p>
+          <form
+            class="newsletter__form reveal d3"
+            id="newsletterForm"
+            onsubmit="return handleNewsletter(event);"
+          >
+            <input
+              class="newsletter__input"
+              type="email"
+              id="emailInput"
+              placeholder="your@email.com"
+              required
+              autocomplete="email"
+            />
+            <button type="submit" class="btn btn-primary">Subscribe</button>
+          </form>
+          <p
+            class="reveal d4"
+            style="
+              font-size: 0.76rem;
+              color: var(--c-muted);
+              margin-top: 14px;
+              text-align: center;
+            "
+          >
+            No spam. Unsubscribe any time. &nbsp;·&nbsp; We respect your inbox.
+          </p>
+        </div>
+      </div>
+    </section>
   </body>
 </html>
