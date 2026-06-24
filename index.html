@@ -1857,6 +1857,24 @@
       });
 
       // NAVBAR - SCROLL SHRINK
+      const navbar = document.getElementById("navbar");
+      const navLoginBtn = document.getElementById("navLoginBtn");
+
+      window.addEventListener(
+        "scroll",
+        () => {
+          if (window.scrollY > 60) {
+            navbar.classList.add("scrolled");
+            navLoginBtn.style.display = "inline-flex";
+          } else {
+            navbar.classList.remove("scrolled");
+            navLoginBtn.style.display = "none";
+          }
+        },
+        { passive: true },
+      );
+
+      // DROPDOWN MENU
     </script>
   </body>
 </html>
