@@ -1874,7 +1874,36 @@
         { passive: true },
       );
 
-      // DROPDOWN MENU
+      // DROPDOWN MENU -  (KEYBOARD ACCESSIBLE)
+      document.querySelectorAll(".has-dropdown").forEach((dd) => {
+        dd.addEventListener("click", (e) => {
+          const isOpen = dd.classList.contains("open");
+          document
+            .querySelectorAll(".has-dropdown.open")
+            .forEach((o) => o.classList.remove("open"));
+        });
+
+        dd.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            dd.click();
+          }
+          if (e.key === "Escape") dd.classList.remove("open");
+        });
+      });
+
+      document.addEventListener("click", (e) => {
+        if (!e.target.closest(".has-dropdown")) {
+          document
+            .querySelectorAll(".has-dropdown.open")
+            .forEach((o) => o.classList.remove("open"));
+        }
+      });
+
+      // HAMBURGER - MOBILE MENU
+      const hamburger = document.getElementById("hamburger");
+      const mobMenu = document.getElementById("mobMenu");
+      const mobOverlay = document.getElementById("mobOverlay");
     </script>
   </body>
 </html>
