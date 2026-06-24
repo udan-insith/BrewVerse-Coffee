@@ -1812,5 +1812,19 @@
 
     <!-- Toast wrap -->
     <div class="toast-wrap" id="toastWrap"></div>
+
+    <!-- ============================================================
+      JAVASCRIPT
+    ============================================================ -->
+    <script>
+      // PAGE LOADER
+      const loader = document.getElementById("pageLoader");
+      const loaderBar = document.getElementById("loaderBar");
+
+      window.addEventListener("load", () => {
+        loaderBar.style.width = "100%";
+        setTimeout(() => loader.classList.add("done"), 1700);
+      });
+    </script>
   </body>
 </html>
