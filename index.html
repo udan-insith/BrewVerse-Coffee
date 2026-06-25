@@ -2004,6 +2004,29 @@
         }
         loop();
       })();
+
+      // Hero BG Load
+      const heroBg = document.getElementById("heroBg");
+      heroBg.style.backgroundImage =
+        "url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1920&q=80')";
+      setTimeout(() => heroBg.classList.add("loaded"), 100);
+
+      // MARQUEE
+      (function initMarquee() {
+        const track = document.getElementById("marqueeTrack");
+        let x = 0;
+        const speed = 0.75;
+        const inners = track.querySelectorAll(".marquee-inner");
+
+        function tick() {
+          x -= speed;
+          const w = inners[0].offsetWidth;
+          if (Math.abs(x) >= w) x = 0;
+          track.style.transform = `translateX(${x}px)`;
+          requestAnimationFrame(tick);
+        }
+        tick();
+      })();
     </script>
   </body>
 </html>
