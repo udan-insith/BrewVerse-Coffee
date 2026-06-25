@@ -2345,6 +2345,21 @@
           }
         }
       });
+
+      // NAVBAR ACTIVE LINK
+      (function setActiveLink() {
+        const path = window.location.pathname.split("/").pop() || "index.html";
+        document
+          .querySelectorAll(".nav-link:not(.dropdown-toggle)")
+          .forEach((link) => {
+            const href = link.getAttribute("href");
+            if (href && path === href) {
+              link.classList.add("active");
+            } else {
+              link.classList.remove("active");
+            }
+          });
+      })();
     </script>
   </body>
 </html>
