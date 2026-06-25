@@ -2123,6 +2123,16 @@
           addToast("📸 Follow @noirbrew on Instagram!", "info"),
         );
       });
+
+      // NEWSLETTER
+      function handleNewsletter(e) {
+        e.preventDefault();
+        const email = document.getElementById("emailInput").value.trim();
+        if (!email) return false;
+        addToast(`✅ ${email} subscribed — welcome!`, "ok");
+        document.getElementById("newsletterForm").reset();
+        return false;
+      }
     </script>
   </body>
 </html>
