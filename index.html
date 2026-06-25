@@ -2073,6 +2073,39 @@
         { threshold: 0.12, rootMargin: "0px 0px -40px 0px" },
       );
       revealEls.forEach((el) => revealObs.observe(el));
+
+      // COUNTING STATS
+      const statNums = document.querySelectorAll("[data-count]");
+      const countObs = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            const el = entry.target;
+            const target = +el.dataset.count;
+            const suffix =
+              target >= 100
+                ? target === 12000
+                  ? "+"
+                  : ""
+                : target === 96
+                  ? ""
+                  : "";
+            let start = 0;
+            const inc = target / 60;
+            const timer = setInterval(() => {
+              start += inc;
+              if (start >= target) {
+                start = target;
+                clearInterval(timer);
+              }
+              el.textContent = Math.floor(start).toLocaleString() + suffix;
+            }, 28);
+            countObs.unobserve(el);
+          });
+        },
+        { threshold: 0.4 },
+      );
+      statNums.forEach((el) => countObs.observe(el));
     </script>
   </body>
 </html>
