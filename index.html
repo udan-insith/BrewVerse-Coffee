@@ -12,7 +12,7 @@
   </head>
   <body>
     <!-- PAGE LOADER -->
-    <div class="pageLoader">
+    <div class="pageLoader" id="pageLoader">
       <div class="loader__cup">
         <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
           <!-- Steam lines -->
@@ -1909,7 +1909,18 @@
         hamburger.classList.add("open");
         mobMenu.classList.add("open");
         mobOverlay.classList.add("show");
+        document.body.style.overflow = "";
+        hamburger.setAttribute("aria-expanded", "false");
+        mobMenu.setAttribute("aria-hidden", "true");
       }
+
+      hamburger.addEventListener("click", () => {
+        mobMenu.classList.contains("open") ? closeMob() : openMob();
+      });
+      mobOverlay.addEventListener("click", closeMob);
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeMob();
+      });
     </script>
   </body>
 </html>
