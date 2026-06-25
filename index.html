@@ -2056,6 +2056,23 @@
           strip.scrollLeft = scrollLeft - (x - startX) * 1.4;
         });
       })();
+
+      // SCROLL REVEAL
+      const revealEls = document.querySelectorAll(
+        ".reveal,.reveal-l,.reveal-r,.reveal-s",
+      );
+      const revealObs = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("in");
+              revealObs.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12, rootMargin: "0px 0px -40px 0px" },
+      );
+      revealEls.forEach((el) => revealObs.observe(el));
     </script>
   </body>
 </html>
