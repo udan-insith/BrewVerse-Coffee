@@ -2027,6 +2027,35 @@
         }
         tick();
       })();
+
+      // DRAGABLE SCROLL STRIP
+      (function initDrag() {
+        const strip = document.getElementById("menuStrip");
+        let isDown = false,
+          startX,
+          scrollLeft;
+
+        strip.addEventListener("mousedown", (e) => {
+          isDown = true;
+          strip.style.cursor = "grabbing";
+          startX = e.pageX - strip.offsetLeft;
+          scrollLeft = strip.scrollLeft;
+        });
+        strip.addEventListener("mouseleave", () => {
+          isDown = false;
+          strip.style.cursor = "grab";
+        });
+        strip.addEventListener("mouseup", () => {
+          isDown = false;
+          strip.style.cursor = "grab";
+        });
+        strip.addEventListener("mousemove", (e) => {
+          if (!isDown) return;
+          e.preventDefault();
+          const x = e.pageX - strip.offsetLeft;
+          strip.scrollLeft = scrollLeft - (x - startX) * 1.4;
+        });
+      })();
     </script>
   </body>
 </html>
