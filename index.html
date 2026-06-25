@@ -2106,6 +2106,23 @@
         { threshold: 0.4 },
       );
       statNums.forEach((el) => countObs.observe(el));
+
+      // GALLERY HOVER EFFECT
+      document.querySelectorAll(".gallery-item").forEach((item) => {
+        const img = item.querySelector(".gal-img");
+        const over = item.querySelector(".gal-over");
+        item.addEventListener("mouseenter", () => {
+          img.style.transform = "scale(1.07)";
+          over.style.background = "rgba(212,168,83,0.15)";
+        });
+        item.addEventListener("mouseleave", () => {
+          img.style.transform = "";
+          over.style.background = "rgba(10,8,6,0)";
+        });
+        item.addEventListener("click", () =>
+          addToast("📸 Follow @noirbrew on Instagram!", "info"),
+        );
+      });
     </script>
   </body>
 </html>
