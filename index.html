@@ -2133,6 +2133,21 @@
         document.getElementById("newsletterForm").reset();
         return false;
       }
+
+      // TOAST SYSTEM
+      function addToast(msg, type = "info") {
+        const wrap = document.getElementById("toastWrap");
+        const t = document.createElement("div");
+        t.className = `toast ${type}`;
+        t.textContent = msg;
+        wrap.appendChild(t);
+        setTimeout(() => {
+          t.style.opacity = "0";
+          t.style.transform = "translateY(14px)";
+          t.style.transition = "all .4s ease";
+          setTimeout(() => t.remove(), 420);
+        }, 3200);
+      }
     </script>
   </body>
 </html>
