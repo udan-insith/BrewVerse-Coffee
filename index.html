@@ -2360,6 +2360,18 @@
             }
           });
       })();
+
+      // PARALLAX HERO BG
+      window.addEventListener(
+        "scroll",
+        () => {
+          const scrolled = window.pageYOffset;
+          if (heroBg) {
+            heroBg.style.transform = `scale(1.05) translateY(${scrolled * 0.25}px)`;
+          }
+        },
+        { passive: true },
+      );
     </script>
   </body>
 </html>
