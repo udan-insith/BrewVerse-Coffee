@@ -1921,6 +1921,34 @@
       document.addEventListener("keydown", (e) => {
         if (e.key === "Escape") closeMob();
       });
+
+      // HERO TEXT ANIMATION
+      const words = ["Story.", "Journey.", "Ritual.", "Memory.", "Craft."];
+      let wi = 0;
+      let ci = 0;
+      let deleting = false;
+      const typedEl = document.getElementById("typedText");
+
+      function type() {
+        const word = words[wi];
+        typedEl.textContent = deleting
+          ? word.slice(0, ci--)
+          : word.slice(0, ci++);
+
+        let speed = deleting ? 55 : 95;
+        if (!deleting && ci > word.length) {
+          deleting = true;
+          speed = 1500;
+        } else if (deleting && ci < 0) {
+          deleting = false;
+          wi = (wi + 1) % words.length;
+          ci = 0;
+          speed = 280;
+        }
+
+        setTimeout(type, speed);
+      }
+      setTimeout(type, 1800);
     </script>
   </body>
 </html>
