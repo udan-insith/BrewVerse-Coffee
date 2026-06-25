@@ -1909,6 +1909,14 @@
         hamburger.classList.add("open");
         mobMenu.classList.add("open");
         mobOverlay.classList.add("show");
+        document.body.style.overflow = "hidden";
+        hamburger.setAttribute("aria-expanded", "true");
+        mobMenu.setAttribute("aria-hidden", "false");
+      }
+      function closeMob() {
+        hamburger.classList.remove("open");
+        mobMenu.classList.remove("open");
+        mobOverlay.classList.remove("show");
         document.body.style.overflow = "";
         hamburger.setAttribute("aria-expanded", "false");
         mobMenu.setAttribute("aria-hidden", "true");
