@@ -1,0 +1,87 @@
+/* FILTER BAR */
+.filter-bar {
+  position: sticky;
+  top: 66px; /* sits right below navbar */
+  z-index: 980;
+  background: var(--c-bg);
+  border-bottom: 1px solid var(--c-border);
+  padding: 0;
+  transition:
+    box-shadow var(--t-mid),
+    background var(--t-mid);
+}
+.filter-bar--shadow {
+  box-shadow: 0 6px 30px var(--c-shadow);
+  background: var(--c-navbar);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+}
+
+.filter-bar__inner {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.filter-bar__inner::-webkit-scrollbar {
+  display: none;
+}
+
+/* Category pills */
+.filter-pills {
+  display: flex;
+  gap: 7px;
+  flex-shrink: 0;
+}
+.fpill {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 18px;
+  border: 1.5px solid var(--c-border);
+  border-radius: var(--r-full);
+  font-size: 0.825rem;
+  font-weight: 500;
+  color: var(--c-muted);
+  background: transparent;
+  font-family: var(--font-body);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all var(--t-fast);
+  position: relative;
+  overflow: hidden;
+}
+.fpill::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--c-gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--t-mid) var(--ease-out);
+  z-index: -1;
+}
+.fpill:hover {
+  color: var(--c-cream);
+  border-color: var(--c-border-strong);
+}
+.fpill.active {
+  background: var(--c-gold);
+  color: #0a0806;
+  border-color: var(--c-gold);
+  font-weight: 600;
+}
+.fpill__emoji {
+  font-size: 15px;
+  line-height: 1;
+}
+
+/* Divider between pills and search */
+.filter-bar__sep {
+  width: 1px;
+  height: 26px;
+  background: var(--c-border);
+  flex-shrink: 0;
+}
