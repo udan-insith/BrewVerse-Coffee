@@ -324,5 +324,59 @@
         </div>
       </div>
     </div>
+
+    <!-- FEATURED BANNER -->
+    <div class="container" style="padding-top: 44px" id="featuredWrap">
+      <div class="featured-banner reveal">
+        <div class="featured-banner__img-wrap">
+          <img
+            class="featured-banner__img"
+            src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=900&q=80"
+            alt="The Noir Signature"
+            loading="lazy"
+          />
+          <div class="featured-banner__over"></div>
+        </div>
+        <div class="featured-banner__body">
+          <div class="featured-banner__eyebrow">
+            <span
+              style="
+                background: var(--c-gold);
+                color: #0a0806;
+                padding: 2px 10px;
+                border-radius: var(--r-full);
+                font-size: 0.65rem;
+              "
+              >🏆 THIS WEEK'S SPECIAL</span
+            >
+          </div>
+          <h2 class="featured-banner__title">
+            The Noir<br />
+            <em style="color: var(--c-gold); font-style: italic"
+              >Signature Blend</em
+            >
+          </h2>
+          <p class="featured-banner__desc">
+            Our magnum opus — 8 sessions of profiling, two legendary origins
+            united. Dark, layered, and unforgettable. Our most awarded coffee,
+            now available as a single.
+          </p>
+          <div class="featured-banner__price">$7.50</div>
+          <div class="featured-banner__actions">
+            <button
+              class="btn btn-primary"
+              onclick="
+                addToCart({ id: 's1', name: 'Noir Signature', price: 7.5 })
+              "
+            >
+              Order Now
+            </button>
+            <button class="btn btn-ghost" onclick="openQuickView('s1')">
+              Quick View
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
