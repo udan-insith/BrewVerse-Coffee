@@ -1157,6 +1157,20 @@
         .querySelectorAll(".reveal")
         .forEach((el) => revealObs.observe(el));
 
+      // FILTER BAR SHADOW
+      const filterBar = document.getElementById("filterBar");
+      const filterBarTop = filterBar.offsetTop;
+      window.addEventListener(
+        "scroll",
+        () => {
+          filterBar.classList.toggle(
+            "filter-bar--shadow",
+            window.scrollY > 200,
+          );
+        },
+        { passive: true },
+      );
+
       //   PAGE LOADER
       const loader = document.getElementById("pageLoader");
       const loaderBar = document.getElementById("loaderBar");
