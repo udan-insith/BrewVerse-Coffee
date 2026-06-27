@@ -532,5 +532,26 @@
         <button class="chat-send" id="chatSend">➤</button>
       </div>
     </div>
+
+    <!-- Cart float button -->
+    <a class="cart-float" id="cartFloat" href="#">
+      <span class="cart-float__icon">🛒</span>
+      <span class="cart-float__text">View Order</span>
+      <span class="cart-float__count" id="cartCount">0</span>
+    </a>
+
+    <!-- Quick view modal -->
+    <div class="qv-overlay" id="qvOverlay" role="dialog" aria-modal="true">
+      <div class="qv-modal" id="qvModal">
+        <div class="qv-img-wrap">
+          <img class="qv-img" id="qvImg" src="" alt="" />
+          <button class="qv-close" id="qvClose" aria-label="Close">✕</button>
+        </div>
+        <div class="qv-body" id="qvBody"></div>
+      </div>
+    </div>
+
+    <!-- Toast wrap -->
+    <div class="toast-wrap" id="toastWrap"></div>
   </body>
 </html>
