@@ -1140,6 +1140,30 @@
           img: "https://images.unsplash.com/photo-1557330359-ffdc4e6de8d0?w=600&q=80",
         },
       ];
+
+      //   SCROLL REVEAL
+      const revealObs = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("in");
+              revealObs.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.08, rootMargin: "0px 0px -30px 0px" },
+      );
+      document
+        .querySelectorAll(".reveal")
+        .forEach((el) => revealObs.observe(el));
+
+      //   PAGE LOADER
+      const loader = document.getElementById("pageLoader");
+      const loaderBar = document.getElementById("loaderBar");
+      window.addEventListener("load", () => {
+        loaderBar.style.width = "100%";
+        setTimeout(() => loader.classList.add("done"), 1600);
+      });
     </script>
   </body>
 </html>
