@@ -192,5 +192,80 @@
         >
       </div>
     </div>
+
+    <!-- HERO SECTION -->
+    <section class="page-hero" style="padding-top: 80px">
+      <div class="page-hero__bg menu-page-hero"></div>
+      <div
+        class="page-hero__over"
+        style="
+          background: linear-gradient(
+            135deg,
+            rgba(10, 8, 6, 0.9) 0%,
+            rgba(10, 8, 6, 0.6) 100%
+          );
+        "
+      ></div>
+      <!-- Decorative rings -->
+      <div
+        style="
+          position: absolute;
+          right: 8%;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 280px;
+          height: 280px;
+          border: 1px solid rgba(212, 168, 83, 0.1);
+          border-radius: 50%;
+          pointer-events: none;
+          animation: rotateSlow 20s linear infinite;
+        "
+      ></div>
+      <div
+        style="
+          position: absolute;
+          right: calc(8% + 30px);
+          top: 50%;
+          transform: translateY(-50%);
+          width: 210px;
+          height: 210px;
+          border: 1px solid rgba(212, 168, 83, 0.06);
+          border-radius: 50%;
+          pointer-events: none;
+          animation: rotateSlow 14s linear infinite reverse;
+        "
+      ></div>
+      <div
+        class="page-hero__content"
+        style="animation: fadeUp 0.8s var(--ease-out) 0.3s both"
+      >
+        <div
+          class="eyebrow"
+          style="justify-content: center; margin-bottom: 14px"
+        >
+          Sourced · Roasted · Served
+        </div>
+        <h1 class="page-hero__title" style="font-style: italic">
+          The <em style="color: var(--c-gold); font-style: normal">Menu</em>
+        </h1>
+        <p
+          style="
+            color: var(--c-cream-dim);
+            font-size: 1rem;
+            margin: 12px auto 0;
+            max-width: 44ch;
+            text-align: center;
+          "
+        >
+          Every item crafted with intent. Every flavour a decision. Scroll,
+          explore, and order what calls to you.
+        </p>
+        <div class="breadcrumb" style="margin-top: 20px">
+          <a href="index.html">Home</a>
+          <span style="opacity: 0.4">→</span>
+          <span>Menu</span>
+        </div>
+      </div>
+    </section>
   </body>
 </html>
