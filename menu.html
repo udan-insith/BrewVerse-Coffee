@@ -506,5 +506,31 @@
         </div>
       </div>
     </footer>
+
+    <!-- CHATBOT -->
+    <button class="chatbot-fab" id="chatbotFab" aria-label="Open chat">
+      <div class="fab-pulse"></div>
+      <span class="fab-icon">☕</span>
+    </button>
+    <div class="chat-panel" id="chatPanel">
+      <div class="chat-header">
+        <div class="chat-avatar">🤖</div>
+        <div class="chat-info">
+          <div class="chat-info__name">Noir AI Barista</div>
+          <div class="chat-info__status">Ask me anything about our menu</div>
+        </div>
+      </div>
+      <div class="chat-msgs" id="chatMsgs"></div>
+      <div class="chat-input-row">
+        <input
+          class="chat-input"
+          id="chatInput"
+          placeholder="What are you craving?"
+          autocomplete="off"
+          maxlength="200"
+        />
+        <button class="chat-send" id="chatSend">➤</button>
+      </div>
+    </div>
   </body>
 </html>
