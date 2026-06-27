@@ -153,3 +153,16 @@
 .sort-select:focus {
   border-color: var(--c-gold);
 }
+
+/* Results count */
+.results-count {
+  flex-shrink: 0;
+  font-size: 0.78rem;
+  color: var(--c-muted);
+  white-space: nowrap;
+  padding-left: 2px;
+}
+.results-count span {
+  color: var(--c-gold);
+  font-weight: 600;
+}
