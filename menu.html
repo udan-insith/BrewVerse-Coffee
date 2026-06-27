@@ -267,5 +267,62 @@
         </div>
       </div>
     </section>
+
+    <!-- FILTER BAR -->
+    <div class="filter-bar" id="filterBar">
+      <div class="container filter-bar__inner">
+        <!-- Category pills -->
+        <div class="filter-pills" id="filterPills">
+          <button class="fpill active" data-filter="all">
+            <span class="fpill__emoji">✦</span> All Items
+          </button>
+          <button class="fpill" data-filter="hot" id="pill-hot">
+            <span class="fpill__emoji">☕</span> Hot Drinks
+          </button>
+          <button class="fpill" data-filter="cold" id="pill-cold">
+            <span class="fpill__emoji">🧊</span> Cold Brews
+          </button>
+          <button class="fpill" data-filter="food" id="pill-food">
+            <span class="fpill__emoji">🥐</span> Food
+          </button>
+          <button class="fpill" data-filter="specials" id="pill-specials">
+            <span class="fpill__emoji">⭐</span> Specials
+          </button>
+          <button class="fpill" data-filter="beans" id="pill-beans">
+            <span class="fpill__emoji">🫘</span> Whole Beans
+          </button>
+        </div>
+
+        <div class="filter-bar__sep"></div>
+
+        <!-- Search -->
+        <div class="menu-search">
+          <span class="menu-search__icon">🔍</span>
+          <input
+            class="menu-search__input"
+            id="menuSearch"
+            type="search"
+            placeholder="Search drinks…"
+            autocomplete="off"
+            maxlength="40"
+          />
+        </div>
+
+        <!-- Sort + Count -->
+        <div class="menu-sort">
+          <span class="menu-sort__label">Sort:</span>
+          <select class="sort-select" id="menuSort">
+            <option value="default">Featured</option>
+            <option value="price-asc">Price ↑</option>
+            <option value="price-desc">Price ↓</option>
+            <option value="az">A → Z</option>
+          </select>
+        </div>
+
+        <div class="results-count" id="resultsCount">
+          <span id="countNum">30</span> items
+        </div>
+      </div>
+    </div>
   </body>
 </html>
