@@ -1228,6 +1228,67 @@
   </div>`;
       }
 
+      function buildBeanCard(item, delay = 0) {
+        const isFav = favorites.includes(item.id);
+        const badgeHTML = item.badge
+          ? `<div class="m-card__badge badge-${item.btype || "star"}">${item.badge}</div>`
+          : "";
+        const tastesHTML = (item.tastes || [])
+          .map((t) => `<span class="taste-chip">${t}</span>`)
+          .join("");
+        const roastPct = item.roastPct || 50;
+
+        return `
+  <div class="m-card m-card--bean reveal" data-cat="${item.cat}" data-id="${item.id}"
+       style="animation-delay:${delay}ms;" id="card-${item.id}">
+    <div class="m-card__img-wrap">
+      <img class="m-card__img" src="${item.img}" alt="${item.name}" loading="lazy"/>
+      <button class="m-card__heart ${isFav ? "loved" : ""}"
+              onclick="toggleFav('${item.id}',this)" aria-label="Favourite">
+        ${isFav ? "❤️" : "🤍"}
+      </button>
+      <div class="bean-origin-pill">${item.info.Origin}</div>
+      <div class="bean-sca">SCA <strong>${item.info.SCA}</strong></div>
+      ${badgeHTML}
+    </div>
+    <div class="m-card__body">
+      <div class="m-card__category">Whole Beans · 250g</div>
+      <div class="m-card__name">${item.name}</div>
+      <p class="m-card__desc">${item.desc}</p>
+      <div class="taste-chips">${tastesHTML}</div>
+      <div class="bean-meta">
+        <div class="bean-meta-item">
+          <span class="bean-meta-label">Roast</span>
+          <div class="roast-bar"><div class="roast-fill" style="width:${roastPct}%;"></div></div>
+          <span style="font-size:.68rem;color:var(--c-muted);">${item.info.Roast}</span>
+        </div>
+        <div class="bean-meta-item">
+          <span class="bean-meta-label">Process</span>
+          <span class="bean-process-badge">${item.info.Process}</span>
+        </div>
+      </div>
+      <div class="m-card__foot">
+        <span class="m-card__price">$${item.price.toFixed(2)} <small>/250g</small></span>
+        <button class="m-card__add" id="add-${item.id}"
+                onclick="handleAdd('${item.id}',this)">+</button>
+      </div>
+    </div>
+  </div>`;
+      }
+
+      function buildDivider(catKey, label, icon, desc, count) {
+        return `
+  <div class="section-divider" data-divider="${catKey}" id="div-${catKey}">
+    <div class="section-divider__left">
+      <div class="section-divider__icon">${icon}</div>
+      <div>
+        <div class="section-divider__title">${label}</div>
+      </div>
+      <span class="section-divider__count">${count} items</span>
+    </div>
+  </div>`;
+      }
+
       //   SCROLL REVEAL
       const revealObs = new IntersectionObserver(
         (entries) => {
