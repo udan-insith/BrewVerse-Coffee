@@ -1441,6 +1441,34 @@
         applyFilter();
       });
 
+      // Anchor filter (from navbar dropdown or URL hash)
+      function filterByAnchor(cat) {
+        currentFilter = cat;
+        currentSearch = "";
+        searchInput.value = "";
+        document
+          .querySelectorAll(".fpill")
+          .forEach((b) => b.classList.remove("active"));
+        const pill = document.getElementById(`pill-${cat}`);
+        if (pill) pill.classList.add("active");
+        applyFilter();
+        setTimeout(() => {
+          document
+            .querySelector(".menu-content")
+            ?.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 100);
+        return false; // prevent anchor navigation
+      }
+      window.filterByAnchor = filterByAnchor;
+
+      // Check URL hash on load
+      const hash = window.location.hash.replace("#", "");
+      if (["hot", "cold", "food", "specials", "beans"].includes(hash)) {
+        filterByAnchor(hash);
+      } else {
+        applyFilter();
+      }
+
       //   SCROLL REVEAL
       const revealObs = new IntersectionObserver(
         (entries) => {
