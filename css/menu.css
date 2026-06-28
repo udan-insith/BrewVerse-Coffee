@@ -380,3 +380,63 @@
     box-shadow: 0 0 0 6px rgba(82, 183, 122, 0);
   }
 }
+
+/* Body */
+.m-card__body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 7px;
+}
+
+.m-card__category {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--c-gold);
+}
+
+.m-card__name {
+  font-family: var(--font-display);
+  font-size: 1.08rem;
+  font-weight: 600;
+  color: var(--c-cream);
+  line-height: 1.2;
+}
+
+.m-card__desc {
+  font-size: 0.815rem;
+  color: var(--c-muted);
+  line-height: 1.65;
+  flex: 1;
+}
+
+/* Dietary tags */
+.diet-tags {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  min-height: 22px;
+}
+.diet-tag {
+  padding: 2px 9px;
+  background: var(--c-gold-glow);
+  border: 1px solid var(--c-border-strong);
+  border-radius: var(--r-full);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--c-gold);
+}
+.diet-tag.df {
+  color: #52b77a;
+  background: rgba(82, 183, 122, 0.1);
+  border-color: rgba(82, 183, 122, 0.25);
+}
+.diet-tag.gf {
+  color: #e8a030;
+  background: rgba(232, 160, 48, 0.1);
+  border-color: rgba(232, 160, 48, 0.25);
+}
