@@ -1469,6 +1469,28 @@
         applyFilter();
       }
 
+      // ADD TO CART
+      function handleAdd(id, btn) {
+        const item = menuData.find((i) => i.id === id);
+        if (!item) return;
+        const added = addToCart({
+          id: item.id,
+          name: item.name,
+          price: item.price,
+        });
+        if (!added) return;
+        btn.classList.add("added");
+        btn.textContent = "✓";
+        setTimeout(() => {
+          btn.classList.remove("added");
+          btn.textContent = "+";
+        }, 1400);
+      }
+      window.handleAdd = handleAdd;
+
+      // Expose addToCart globally for featured banner
+      window.addToCart = addToCart;
+
       //   SCROLL REVEAL
       const revealObs = new IntersectionObserver(
         (entries) => {
