@@ -1390,6 +1390,57 @@
         return data;
       }
 
+      function applyFilter() {
+        const data = getFiltered();
+        // Hide bean CTA unless showing beans or all
+        const beanCta = document.getElementById("beanCta");
+        if (beanCta)
+          beanCta.style.display =
+            currentFilter === "all" || currentFilter === "beans" ? "" : "none";
+        // Hide featured unless all or specials
+        const featuredWrap = document.getElementById("featuredWrap");
+        if (featuredWrap)
+          featuredWrap.style.display =
+            currentFilter === "all" || currentFilter === "specials"
+              ? ""
+              : "none";
+
+        renderGrid(data);
+      }
+
+      // Pill clicks
+      document.querySelectorAll(".fpill").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          document
+            .querySelectorAll(".fpill")
+            .forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+          currentFilter = btn.dataset.filter;
+          applyFilter();
+          // Scroll to grid top
+          document
+            .querySelector(".menu-content")
+            .scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+      });
+
+      // Search input
+      const searchInput = document.getElementById("menuSearch");
+      let searchTimer;
+      searchInput.addEventListener("input", () => {
+        clearTimeout(searchTimer);
+        searchTimer = setTimeout(() => {
+          currentSearch = searchInput.value;
+          applyFilter();
+        }, 280);
+      });
+
+      // Sort select
+      document.getElementById("menuSort").addEventListener("change", (e) => {
+        currentSort = e.target.value;
+        applyFilter();
+      });
+
       //   SCROLL REVEAL
       const revealObs = new IntersectionObserver(
         (entries) => {
