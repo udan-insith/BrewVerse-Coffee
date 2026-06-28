@@ -1360,6 +1360,36 @@
         }, 50);
       }
 
+      // FILTER AND SORT + SEARCH
+      function getFiltered() {
+        let data = [...menuData];
+
+        // Category filter
+        if (currentFilter !== "all") {
+          data = data.filter((i) => i.cat === currentFilter);
+        }
+
+        // Search filter
+        const q = currentSearch.toLowerCase().trim();
+        if (q) {
+          data = data.filter(
+            (i) =>
+              i.name.toLowerCase().includes(q) ||
+              i.desc.toLowerCase().includes(q) ||
+              (i.tastes || []).some((t) => t.toLowerCase().includes(q)),
+          );
+        }
+
+        // Sort
+        if (currentSort === "price-asc") data.sort((a, b) => a.price - b.price);
+        if (currentSort === "price-desc")
+          data.sort((a, b) => b.price - a.price);
+        if (currentSort === "az")
+          data.sort((a, b) => a.name.localeCompare(b.name));
+
+        return data;
+      }
+
       //   SCROLL REVEAL
       const revealObs = new IntersectionObserver(
         (entries) => {
