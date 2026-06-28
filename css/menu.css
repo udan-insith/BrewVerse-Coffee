@@ -218,3 +218,111 @@
   text-align: right;
   display: none;
 }
+
+/* MENU GRID */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
+  gap: 24px;
+}
+
+/* MENU ITEM CARD */
+.m-card {
+  background: var(--c-bg-card);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition:
+    transform var(--t-mid) var(--ease-out),
+    border-color var(--t-mid),
+    box-shadow var(--t-mid),
+    opacity 0.28s ease;
+  position: relative;
+  cursor: default;
+  animation: cardIn 0.5s var(--ease-out) both;
+}
+@keyframes cardIn {
+  from {
+    opacity: 0;
+    transform: translateY(22px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.m-card:hover {
+  transform: translateY(-7px);
+  border-color: var(--c-border-strong);
+  box-shadow:
+    0 20px 52px rgba(0, 0, 0, 0.32),
+    0 0 0 1px rgba(212, 168, 83, 0.1);
+}
+
+/* Hiding/showing states for filter transitions */
+.m-card.hiding {
+  opacity: 0;
+  transform: scale(0.92) translateY(10px);
+  pointer-events: none;
+}
+.m-card.hidden {
+  display: none;
+}
+.m-card.showing {
+  animation: cardIn 0.4s var(--ease-out) both;
+}
+
+/* Image wrapper */
+.m-card__img-wrap {
+  position: relative;
+  overflow: hidden;
+  height: 196px;
+  flex-shrink: 0;
+}
+.m-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--t-slow) var(--ease-out);
+  display: block;
+}
+.m-card:hover .m-card__img {
+  transform: scale(1.07);
+}
+
+/* Heart / favourite button */
+.m-card__heart {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(10, 8, 6, 0.55);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.5);
+  transition: all var(--t-fast) var(--ease-bounce);
+  z-index: 2;
+  line-height: 1;
+}
+.m-card__heart:hover {
+  transform: scale(1.15);
+  color: #e05252;
+}
+.m-card__heart.loved {
+  color: #e05252;
+  background: rgba(224, 82, 82, 0.18);
+}
+.m-card__heart.loved::after {
+  content: "";
+}
