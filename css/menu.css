@@ -594,3 +594,32 @@
   font-weight: 500;
   color: var(--c-cream-dim);
 }
+
+/* Roast level bar */
+.roast-bar {
+  width: 80px;
+  height: 5px;
+  background: var(--c-bg-raised);
+  border-radius: var(--r-full);
+  overflow: hidden;
+  border: 1px solid var(--c-border);
+}
+.roast-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #c8e6c9, #ffcc80, #8d4e27);
+  border-radius: var(--r-full);
+  transition: width 0.8s var(--ease-out);
+}
+
+.bean-process-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  background: var(--c-bg-raised);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-full);
+  font-size: 0.68rem;
+  color: var(--c-muted-light);
+  font-weight: 500;
+}
