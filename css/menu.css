@@ -761,3 +761,25 @@
     transform: scale(1);
   }
 }
+
+/* EMPTY STATE */
+.empty-state {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 80px 20px;
+}
+.empty-state__icon {
+  font-size: 3.5rem;
+  display: block;
+  margin-bottom: 20px;
+}
+.empty-state__title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--c-cream);
+  margin-bottom: 10px;
+}
+.empty-state__text {
+  font-size: 0.9rem;
+  color: var(--c-muted);
+}
