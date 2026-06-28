@@ -1289,6 +1289,77 @@
   </div>`;
       }
 
+      // RENDER GRID
+      const sections = [
+        {
+          key: "hot",
+          label: "Hot Drinks",
+          icon: "☕",
+          desc: "Espresso-based & specialty hot beverages",
+        },
+        {
+          key: "cold",
+          label: "Cold Brews",
+          icon: "🧊",
+          desc: "Iced & chilled coffee drinks",
+        },
+        {
+          key: "food",
+          label: "Food & Pastries",
+          icon: "🥐",
+          desc: "House-baked daily from scratch",
+        },
+        {
+          key: "specials",
+          label: "Seasonal Specials",
+          icon: "⭐",
+          desc: "Limited and rotating chef's creations",
+        },
+        {
+          key: "beans",
+          label: "Whole Beans",
+          icon: "🫘",
+          desc: "Single-origin & house blend bags",
+        },
+      ];
+
+      function renderGrid(data) {
+        const grid = document.getElementById("menuGrid");
+        let html = "";
+
+        sections.forEach((sec) => {
+          const items = data.filter((i) => i.cat === sec.key);
+          if (items.length === 0) return;
+          html += buildDivider(
+            sec.key,
+            sec.label,
+            sec.icon,
+            sec.desc,
+            items.length,
+          );
+          items.forEach((item, idx) => {
+            html += buildCard(item, idx * 55);
+          });
+        });
+
+        if (!html) {
+          html = `<div class="empty-state">
+      <span class="empty-state__icon">☕</span>
+      <div class="empty-state__title">No items found</div>
+      <p class="empty-state__text">Try a different search or clear the filter.</p>
+    </div>`;
+        }
+
+        grid.innerHTML = html;
+        document.getElementById("countNum").textContent = data.length;
+
+        // Trigger scroll reveal on newly added items
+        setTimeout(() => {
+          const newReveal = grid.querySelectorAll(".reveal");
+          newReveal.forEach((el) => revealObs.observe(el));
+        }, 50);
+      }
+
       //   SCROLL REVEAL
       const revealObs = new IntersectionObserver(
         (entries) => {
