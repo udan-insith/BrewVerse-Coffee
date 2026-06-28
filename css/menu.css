@@ -509,3 +509,88 @@
     transform: scale(1.1);
   }
 }
+
+/* BEAN CARD */
+.m-card--bean .m-card__img-wrap {
+  height: 170px;
+}
+
+/* Origin overlay */
+.bean-origin-pill {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 4px 11px;
+  background: rgba(10, 8, 6, 0.72);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-radius: var(--r-full);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--c-cream);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 2;
+}
+
+/* SCA score */
+.bean-sca {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  padding: 4px 10px;
+  background: var(--c-gold);
+  border-radius: var(--r-full);
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #0a0806;
+  z-index: 2;
+  line-height: 1.4;
+}
+
+/* Tasting notes chips */
+.taste-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin: 2px 0;
+}
+.taste-chip {
+  padding: 3px 10px;
+  background: var(--c-bg-raised);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-full);
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--c-muted-light);
+  white-space: nowrap;
+  transition: all var(--t-fast);
+}
+.taste-chip:hover {
+  border-color: var(--c-gold);
+  color: var(--c-gold);
+}
+
+/* Bean metadata row */
+.bean-meta {
+  display: flex;
+  gap: 18px;
+  font-size: 0.78rem;
+  color: var(--c-muted);
+  margin-top: 2px;
+}
+.bean-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.bean-meta-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--c-muted);
+}
+.bean-meta-val {
+  font-weight: 500;
+  color: var(--c-cream-dim);
+}
