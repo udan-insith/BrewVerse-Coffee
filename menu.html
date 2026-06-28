@@ -1181,6 +1181,53 @@
         return true;
       }
 
+      // BUILD CARD HTML
+      function buildCard(item, delay = 0) {
+        const isFav = favorites.includes(item.id);
+
+        if (item.isBean) return buildBeanCard(item, delay);
+
+        const dietHTML = item.dietary
+          .map((d) => `<span class="diet-tag ${d.toLowerCase()}">${d}</span>`)
+          .join("");
+
+        const badgeHTML = item.badge
+          ? `<div class="m-card__badge badge-${item.btype || "star"}">${item.badge}</div>`
+          : "";
+
+        return `
+  <div class="m-card reveal" data-cat="${item.cat}" data-id="${item.id}"
+       style="animation-delay:${delay}ms;" id="card-${item.id}">
+    <div class="m-card__img-wrap">
+      <img class="m-card__img" src="${item.img}" alt="${item.name}" loading="lazy"/>
+      <button class="m-card__heart ${isFav ? "loved" : ""}"
+              onclick="toggleFav('${item.id}',this)" aria-label="Favourite">
+        ${isFav ? "❤️" : "🤍"}
+      </button>
+      ${badgeHTML}
+    </div>
+    <div class="m-card__body">
+      <div class="m-card__category">${item.catLabel}</div>
+      <div class="m-card__name">${item.name}</div>
+      <p class="m-card__desc">${item.desc}</p>
+      <div class="diet-tags">${dietHTML}</div>
+      <div class="m-card__foot">
+        <span class="m-card__price">$${item.price.toFixed(2)}</span>
+        <div style="display:flex;gap:8px;align-items:center;">
+          <button onclick="openQuickView('${item.id}')" style="
+            background:none;border:none;cursor:pointer;color:var(--c-muted);
+            font-size:13px;transition:color var(--t-fast);padding:4px;
+          " onmouseenter="this.style.color='var(--c-gold)'"
+            onmouseleave="this.style.color='var(--c-muted)'"
+            title="Quick view" aria-label="Quick view">👁</button>
+          <button class="m-card__add" id="add-${item.id}"
+                  onclick="handleAdd('${item.id}',this)">+</button>
+        </div>
+      </div>
+    </div>
+  </div>`;
+      }
+
       //   SCROLL REVEAL
       const revealObs = new IntersectionObserver(
         (entries) => {
