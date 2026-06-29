@@ -1491,6 +1491,27 @@
       // Expose addToCart globally for featured banner
       window.addToCart = addToCart;
 
+      // FAVOURITES
+      function toggleFav(id, btn) {
+        const idx = favorites.indexOf(id);
+        if (idx > -1) {
+          favorites.splice(idx, 1);
+          btn.textContent = "🤍";
+          btn.classList.remove("loved");
+          addToast("💔 Removed from favourites", "info");
+        } else {
+          favorites.push(id);
+          btn.textContent = "❤️";
+          btn.classList.add("loved");
+          btn.style.animation = "none";
+          btn.offsetHeight;
+          btn.style.animation = "addedPop .4s var(--ease-bounce)";
+          addToast("❤️ Saved to favourites!", "ok");
+        }
+        localStorage.setItem("nbFav", JSON.stringify(favorites));
+      }
+      window.toggleFav = toggleFav;
+
       //   SCROLL REVEAL
       const revealObs = new IntersectionObserver(
         (entries) => {
