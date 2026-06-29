@@ -1710,6 +1710,64 @@
         }, 3200);
       }
       window.addToast = addToast;
+
+      // CHATBOT
+      const knowledge = {
+        menu: {
+          reply:
+            "Our full menu has hot drinks, cold brews, food, specials, and whole beans. Use the filter pills at the top to explore each category! ☕",
+          qr: ["Hot drinks?", "Cold brew options", "Whole beans"],
+        },
+        price: {
+          reply:
+            "Drinks from $5.00–$9.50. Food from $5.50–$18.00. Whole beans from $24/250g. 🫘",
+          qr: ["Bestseller?", "Bean subscriptions"],
+        },
+        hours: {
+          reply:
+            "Open Mon–Fri 7:00–20:00 · Sat–Sun 8:00–21:00 at all three Singapore locations! ☕",
+          qr: ["Where are you?", "Book a table"],
+        },
+        location: {
+          reply:
+            "Three locations in Singapore: Tiong Bahru (flagship), Dempsey Hill, and Jewel Changi. 📍",
+          qr: ["Opening hours?", "Contact page"],
+        },
+        best: {
+          reply:
+            "Our absolute bestsellers: Honey Oat Latte, Nitro Cold Brew, and The Noir Signature! ⭐",
+          qr: ["How much?", "Quick view"],
+        },
+        bean: {
+          reply:
+            "We stock six single-origin and blended bags: Ethiopia, Colombia, Guatemala, Indonesia, Kenya, and our House Blend. All freshly roasted! 🫘",
+          qr: ["Prices?", "Bean subscription"],
+        },
+        vegan: {
+          reply:
+            "Most of our menu is vegan-friendly! Look for the VG tag on cards. We also offer oat, almond, and soy milk. 🌱",
+          qr: ["Dairy-free options?", "Full menu"],
+        },
+        default: {
+          reply:
+            "I can help with our menu, pricing, hours, or locations. What would you like to know? ☕",
+          qr: ["Menu", "Prices", "Locations", "Hours"],
+        },
+      };
+      function matchIntent(t) {
+        const s = t.toLowerCase();
+        if (/price|cost|how much|\$/.test(s)) return knowledge.price;
+        if (/hour|open|close|when/.test(s)) return knowledge.hours;
+        if (/where|location|address|changi|tiong|dempsey/.test(s))
+          return knowledge.location;
+        if (/best|popular|recommend|favourite/.test(s)) return knowledge.best;
+        if (/bean|origin|single|roast|bag|subscri/.test(s))
+          return knowledge.bean;
+        if (/vegan|plant|dairy|milk|allerg/.test(s)) return knowledge.vegan;
+        if (/menu|drink|coffee|latte|espresso|cold/.test(s))
+          return knowledge.menu;
+        return knowledge.default;
+      }
     </script>
   </body>
 </html>
