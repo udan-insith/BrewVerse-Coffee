@@ -3,7 +3,9 @@
   position: sticky;
   top: 66px; /* sits right below navbar */
   z-index: 980;
-  background: var(--c-bg);
+  background: var(--c-navbar);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
   border-bottom: 1px solid var(--c-border);
   padding: 0;
   transition:
