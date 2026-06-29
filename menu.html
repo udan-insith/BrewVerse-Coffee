@@ -1668,6 +1668,32 @@
             .forEach((o) => o.classList.remove("open"));
         }
       });
+
+      // THEME SWITCHER
+      const root = document.documentElement;
+      const themeBtn = document.getElementById("themeBtn");
+      const curtain = document.getElementById("themeCurtain");
+      let isDark = true;
+      (function () {
+        const s = localStorage.getItem("nbTheme");
+        if (s) {
+          isDark = s === "dark";
+          root.setAttribute("data-theme", s);
+          themeBtn.textContent = isDark ? "🌙" : "☀️";
+        }
+      })();
+      themeBtn.addEventListener("click", () => {
+        curtain.classList.remove("dropping");
+        curtain.offsetHeight;
+        curtain.classList.add("dropping");
+        setTimeout(() => {
+          isDark = !isDark;
+          const n = isDark ? "dark" : "light";
+          root.setAttribute("data-theme", n);
+          themeBtn.textContent = isDark ? "🌙" : "☀️";
+          localStorage.setItem("nbTheme", n);
+        }, 420);
+      });
     </script>
   </body>
 </html>
