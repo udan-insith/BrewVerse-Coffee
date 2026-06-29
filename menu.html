@@ -1629,6 +1629,27 @@
         },
         { passive: true },
       );
+
+      // HAMBURGER
+      const hamburger = document.getElementById("hamburger");
+      const mobMenu = document.getElementById("mobMenu");
+      const mobOverlay = document.getElementById("mobOverlay");
+      const openMob = () => {
+        hamburger.classList.add("open");
+        mobMenu.classList.add("open");
+        mobOverlay.classList.add("show");
+        document.body.style.overflow = "hidden";
+      };
+      const closeMob = () => {
+        hamburger.classList.remove("open");
+        mobMenu.classList.remove("open");
+        mobOverlay.classList.remove("show");
+        document.body.style.overflow = "";
+      };
+      hamburger.addEventListener("click", () =>
+        mobMenu.classList.contains("open") ? closeMob() : openMob(),
+      );
+      mobOverlay.addEventListener("click", closeMob);
     </script>
   </body>
 </html>
