@@ -1512,6 +1512,76 @@
       }
       window.toggleFav = toggleFav;
 
+      // QUICK VIEW MODAL
+      function openQuickView(id) {
+        const item = menuData.find((i) => i.id === id);
+        if (!item) return;
+
+        document.getElementById("qvImg").src = item.img;
+        document.getElementById("qvImg").alt = item.name;
+
+        const dietHTML = (item.dietary || [])
+          .map(
+            (d) =>
+              `<span class="diet-tag ${d.toLowerCase()}">${d === "VG" ? "Vegan" : d === "DF" ? "Dairy Free" : d}</span>`,
+          )
+          .join("");
+
+        const tastesHTML = (item.tastes || []).length
+          ? `<div><div class="qv-section-label" style="margin-bottom:8px;">Tasting Notes</div>
+       <div class="taste-chips">${(item.tastes || []).map((t) => `<span class="taste-chip">${t}</span>`).join("")}</div></div>`
+          : "";
+
+        const infoHTML = Object.entries(item.info || {})
+          .map(
+            ([k, v]) => `
+    <div class="qv-info-item">
+      <div class="qv-info-item__label">${k}</div>
+      <div class="qv-info-item__val">${v}</div>
+    </div>`,
+          )
+          .join("");
+
+        document.getElementById("qvBody").innerHTML = `
+    <div class="qv-category">${item.catLabel}</div>
+    <h2 class="qv-title">${item.name}</h2>
+    <p class="qv-desc">${item.desc}</p>
+    ${tastesHTML}
+    ${dietHTML ? `<div class="diet-tags">${dietHTML}</div>` : ""}
+    <div class="qv-divider"></div>
+    <div class="qv-section-label">Details</div>
+    <div class="qv-info-grid">${infoHTML}</div>
+    <div class="qv-divider"></div>
+    <div class="qv-price">$${item.price.toFixed(2)}${item.isBean ? ' <small style="font-size:.9rem;font-family:var(--font-body);font-weight:400;color:var(--c-muted);">/250g</small>' : ""}</div>
+    <div class="qv-actions">
+      <button class="btn btn-primary" onclick="addToCart({id:'${item.id}',name:'${item.name.replace(/'/g, "\\'")}',price:${item.price}});closeQuickView();">
+        Add to Order
+      </button>
+      <button class="btn btn-ghost" onclick="closeQuickView()">Close</button>
+    </div>
+  `;
+
+        document.getElementById("qvOverlay").classList.add("open");
+        document.body.style.overflow = "hidden";
+      }
+      window.openQuickView = openQuickView;
+
+      function closeQuickView() {
+        document.getElementById("qvOverlay").classList.remove("open");
+        document.body.style.overflow = "";
+      }
+      window.closeQuickView = closeQuickView;
+
+      document
+        .getElementById("qvClose")
+        .addEventListener("click", closeQuickView);
+      document.getElementById("qvOverlay").addEventListener("click", (e) => {
+        if (e.target === e.currentTarget) closeQuickView();
+      });
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeQuickView();
+      });
+
       //   SCROLL REVEAL
       const revealObs = new IntersectionObserver(
         (entries) => {
