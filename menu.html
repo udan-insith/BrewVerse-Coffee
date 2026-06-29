@@ -1811,6 +1811,57 @@
         chatMsgs.appendChild(row);
         chatMsgs.scrollTop = chatMsgs.scrollHeight;
       }
+      function showTyping() {
+        const r = document.createElement("div");
+        r.className = "typing-row";
+        r.id = "typingRow";
+        const a = document.createElement("div");
+        a.className = "msg-avt bot";
+        a.textContent = "🤖";
+        const d = document.createElement("div");
+        d.className = "typing-dots";
+        for (let i = 0; i < 3; i++) {
+          const dot = document.createElement("div");
+          dot.className = "dot";
+          d.appendChild(dot);
+        }
+        r.appendChild(a);
+        r.appendChild(d);
+        chatMsgs.appendChild(r);
+        chatMsgs.scrollTop = chatMsgs.scrollHeight;
+      }
+      function sendMsg(text) {
+        if (!text.trim()) return;
+        appendMsg(text, "user");
+        chatInput.value = "";
+        showTyping();
+        setTimeout(
+          () => {
+            document.getElementById("typingRow")?.remove();
+            const m = matchIntent(text);
+            appendMsg(m.reply, "bot", m.qr);
+          },
+          700 + Math.random() * 500,
+        );
+      }
+      chatSend.addEventListener("click", () => sendMsg(chatInput.value));
+      chatInput.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") sendMsg(chatInput.value);
+      });
+      chatbotFab.addEventListener("click", () => {
+        const open = chatPanel.classList.toggle("open");
+        chatbotFab.classList.toggle("open", open);
+        chatbotFab.querySelector(".fab-icon").textContent = open ? "✕" : "☕";
+        if (open && chatMsgs.children.length === 0) {
+          setTimeout(() => {
+            appendMsg(
+              "Hi! ☕ I'm your menu guide. Ask me about drinks, prices, dietary needs, or anything else!",
+              "bot",
+              ["Hot drinks", "Cold brews", "Our bestseller", "Vegan options"],
+            );
+          }, 300);
+        }
+      });
     </script>
   </body>
 </html>
