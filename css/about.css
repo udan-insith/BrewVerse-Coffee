@@ -359,3 +359,61 @@
   background: var(--c-gold-glow);
   transform: translateY(-2px);
 }
+
+/* FARM PARTNERSHIPS */
+.farms-section {
+  padding: 108px 0;
+  background: var(--c-bg-alt);
+}
+.origins-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 18px;
+  margin-top: 50px;
+}
+.origin-card {
+  background: var(--c-bg-card);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-lg);
+  padding: 28px 18px;
+  text-align: center;
+  transition: all var(--t-mid) var(--ease-out);
+  cursor: default;
+}
+.origin-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--c-gold);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.24);
+}
+.origin-flag {
+  font-size: 2.8rem;
+  display: block;
+  margin-bottom: 12px;
+  line-height: 1;
+  transition: transform var(--t-mid) var(--ease-bounce);
+}
+.origin-card:hover .origin-flag {
+  transform: scale(1.18);
+}
+.origin-country {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--c-cream);
+  margin-bottom: 5px;
+}
+.origin-region {
+  font-size: 0.75rem;
+  color: var(--c-muted);
+  margin-bottom: 10px;
+}
+.origin-farms {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--c-gold);
+  padding: 3px 10px;
+  background: var(--c-gold-glow);
+  border-radius: var(--r-full);
+  display: inline-block;
+}
