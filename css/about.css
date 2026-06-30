@@ -537,3 +537,68 @@
 .cta-block--gold .cta-block__text {
   color: rgba(10, 8, 6, 0.65);
 }
+
+/* RESPONSIVE DESIGN ABOUT PAGE */
+@media (max-width: 1100px) {
+  .values-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .origins-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .awards-strip {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 1024px) {
+  .story-grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+  .story-text {
+    position: static;
+  }
+  .team-grid-6 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .about-cta__inner {
+    grid-template-columns: 1fr;
+  }
+  .values-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  .manifesto::before {
+    font-size: 14rem;
+  }
+  .manifesto__quote {
+    font-size: 1.3rem;
+  }
+  .team-grid-6 {
+    grid-template-columns: 1fr;
+  }
+  .origins-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .awards-strip {
+    grid-template-columns: 1fr;
+  }
+  .cta-block {
+    padding: 36px 28px;
+  }
+  .timeline {
+    padding-left: 28px;
+  }
+}
+@media (max-width: 480px) {
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
+  .origins-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .awards-strip {
+    grid-template-columns: 1fr;
+  }
+}
