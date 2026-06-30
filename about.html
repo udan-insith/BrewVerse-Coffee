@@ -1031,6 +1031,27 @@
         () => navbar.classList.toggle("scrolled", window.scrollY > 60),
         { passive: true },
       );
+
+      /* Hamburger */
+      const hb = document.getElementById("hamburger"),
+        mm = document.getElementById("mobMenu"),
+        mo = document.getElementById("mobOverlay");
+      const openM = () => {
+        hb.classList.add("open");
+        mm.classList.add("open");
+        mo.classList.add("show");
+        document.body.style.overflow = "hidden";
+      };
+      const closeM = () => {
+        hb.classList.remove("open");
+        mm.classList.remove("open");
+        mo.classList.remove("show");
+        document.body.style.overflow = "";
+      };
+      hb.addEventListener("click", () =>
+        mm.classList.contains("open") ? closeM() : openM(),
+      );
+      mo.addEventListener("click", closeM);
     </script>
   </body>
 </html>
