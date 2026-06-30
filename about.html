@@ -1110,6 +1110,20 @@
       document
         .querySelectorAll(".reveal,.reveal-l,.reveal-r,.reveal-s")
         .forEach((el) => revObs.observe(el));
+
+      /* Timeline items */
+      const tlObs = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("in");
+              tlObs.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.15 },
+      );
+      document.querySelectorAll("[data-tl]").forEach((el) => tlObs.observe(el));
     </script>
   </body>
 </html>
