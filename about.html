@@ -1011,5 +1011,26 @@
       </div>
     </div>
     <div class="toast-wrap" id="toastWrap"></div>
+
+    <!-- ============================================================ JS -->
+
+    <script>
+      /* Loader */
+      window.addEventListener("load", () => {
+        document.getElementById("loaderBar").style.width = "100%";
+        setTimeout(
+          () => document.getElementById("pageLoader").classList.add("done"),
+          1600,
+        );
+      });
+
+      /* Navbar */
+      const navbar = document.getElementById("navbar");
+      window.addEventListener(
+        "scroll",
+        () => navbar.classList.toggle("scrolled", window.scrollY > 60),
+        { passive: true },
+      );
+    </script>
   </body>
 </html>
