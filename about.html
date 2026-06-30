@@ -1124,6 +1124,149 @@
         { threshold: 0.15 },
       );
       document.querySelectorAll("[data-tl]").forEach((el) => tlObs.observe(el));
+
+      /* Chatbot */
+      const fab = document.getElementById("chatbotFab"),
+        panel = document.getElementById("chatPanel"),
+        msgs = document.getElementById("chatMsgs"),
+        inp = document.getElementById("chatInput"),
+        snd = document.getElementById("chatSend");
+      const kb = {
+        story: {
+          r: "Noir Brew was founded in 2018 by Marcus Chen in Tiong Bahru with a second-hand drum roaster and an obsession with great coffee. ☕ Seven years later — 3 cafés, 12 farm partnerships, and 12,000+ cups a month.",
+          qr: ["The team?", "Farm partners?", "Awards?"],
+        },
+        team: {
+          r: "Our team includes Marcus (Roast Master), Sarah (Head Barista), Rafael (Sourcing), Priya (Operations), Jamie (Creative), and Aiden (Community). All specialists. All obsessives. 🙌",
+          qr: ["Open roles?", "Visit us"],
+        },
+        farms: {
+          r: "We source direct from 12 farms across Ethiopia, Colombia, Guatemala, Indonesia, and Kenya. Rafael visits every farm, every season. 🌍",
+          qr: ["See the beans →", "Our values?"],
+        },
+        awards: {
+          r: "We've won the Singapore Specialty Coffee Championship three times (2019, 2021, 2023) and were named SCA Roastery of the Year for SEA in 2024. 🏆",
+          qr: ["Our story?", "Visit us"],
+        },
+        values: {
+          r: "We live by four values: Radical Transparency, Scientific Precision, Long-Term Partnerships, and Genuine Sustainability. No compromise on any of them. 🌿",
+          qr: ["Read more", "Our farms?"],
+        },
+        careers: {
+          r: "We're always looking for passionate people. Send your CV and a note about your coffee journey to hello@noirbrew.com. 📩",
+          qr: ["Contact page", "About us"],
+        },
+        default: {
+          r: "I can tell you about our story, team, farm partners, values, or awards. What would you like to know? ☕",
+          qr: ["Our story", "The team", "Farm partners", "Awards"],
+        },
+      };
+      function matchKb(t) {
+        const s = t.toLowerCase();
+        if (/story|found|start|begin|histor|2018/.test(s)) return kb.story;
+        if (/team|staff|people|barista|marcus|sarah|rafael/.test(s))
+          return kb.team;
+        if (/farm|origin|ethiopia|colombia|kenya|source/.test(s))
+          return kb.farms;
+        if (/award|win|champion|certif/.test(s)) return kb.awards;
+        if (/value|sustainab|ethic|transparen/.test(s)) return kb.values;
+        if (/job|career|hire|work|join/.test(s)) return kb.careers;
+        return kb.default;
+      }
+      function appendMsg(text, type = "bot", qr = null) {
+        const row = document.createElement("div");
+        row.className = `msg-row ${type}`;
+        const avt = document.createElement("div");
+        avt.className = `msg-avt ${type}`;
+        avt.textContent = type === "bot" ? "🤖" : "👤";
+        const wrap = document.createElement("div");
+        wrap.style.maxWidth = "78%";
+        const bub = document.createElement("div");
+        bub.className = "msg-bubble";
+        bub.innerHTML = text.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
+        wrap.appendChild(bub);
+        if (qr) {
+          const q = document.createElement("div");
+          q.className = "qr-wrap";
+          qr.forEach((r) => {
+            const b = document.createElement("button");
+            b.className = "qr-btn";
+            b.textContent = r;
+            b.onclick = () => sendMsg(r);
+            q.appendChild(b);
+          });
+          wrap.appendChild(q);
+        }
+        type === "bot"
+          ? row.appendChild(avt) || row.appendChild(wrap)
+          : row.appendChild(wrap) || row.appendChild(avt);
+        msgs.appendChild(row);
+        msgs.scrollTop = msgs.scrollHeight;
+      }
+      function sendMsg(text) {
+        if (!text.trim()) return;
+        appendMsg(text, "user");
+        inp.value = "";
+        const tr = document.createElement("div");
+        tr.className = "typing-row";
+        tr.id = "tr";
+        const a = document.createElement("div");
+        a.className = "msg-avt bot";
+        a.textContent = "🤖";
+        const d = document.createElement("div");
+        d.className = "typing-dots";
+        for (let i = 0; i < 3; i++) {
+          const dt = document.createElement("div");
+          dt.className = "dot";
+          d.appendChild(dt);
+        }
+        tr.appendChild(a);
+        tr.appendChild(d);
+        msgs.appendChild(tr);
+        msgs.scrollTop = msgs.scrollHeight;
+        setTimeout(
+          () => {
+            document.getElementById("tr")?.remove();
+            const m = matchKb(text);
+            appendMsg(m.r, "bot", m.qr);
+          },
+          700 + Math.random() * 500,
+        );
+      }
+      snd.addEventListener("click", () => sendMsg(inp.value));
+      inp.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") sendMsg(inp.value);
+      });
+      fab.addEventListener("click", () => {
+        const open = panel.classList.toggle("open");
+        fab.classList.toggle("open", open);
+        fab.querySelector(".fab-icon").textContent = open ? "✕" : "☕";
+        document.getElementById("fabBadge")?.remove();
+        if (open && msgs.children.length === 0)
+          setTimeout(
+            () =>
+              appendMsg(
+                "Hello! ☕ I can tell you about our story, team, farm partnerships, or values. What would you like to know?",
+                "bot",
+                ["Our story", "The team", "Farm partners", "Awards"],
+              ),
+            300,
+          );
+      });
+
+      function addToast(msg, type = "info") {
+        const w = document.getElementById("toastWrap"),
+          t = document.createElement("div");
+        t.className = `toast ${type}`;
+        t.textContent = msg;
+        w.appendChild(t);
+        setTimeout(() => {
+          t.style.opacity = "0";
+          t.style.transform = "translateY(14px)";
+          t.style.transition = "all .4s";
+          setTimeout(() => t.remove(), 420);
+        }, 3200);
+      }
     </script>
   </body>
 </html>
