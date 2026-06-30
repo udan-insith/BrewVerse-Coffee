@@ -1052,6 +1052,23 @@
         mm.classList.contains("open") ? closeM() : openM(),
       );
       mo.addEventListener("click", closeM);
+
+      /* Dropdown */
+      document.querySelectorAll(".has-dropdown").forEach((dd) => {
+        dd.addEventListener("click", (e) => {
+          const o = dd.classList.contains("open");
+          document
+            .querySelectorAll(".has-dropdown.open")
+            .forEach((d) => d.classList.remove("open"));
+          if (!o) dd.classList.add("open");
+        });
+      });
+      document.addEventListener("click", (e) => {
+        if (!e.target.closest(".has-dropdown"))
+          document
+            .querySelectorAll(".has-dropdown.open")
+            .forEach((d) => d.classList.remove("open"));
+      });
     </script>
   </body>
 </html>
