@@ -190,3 +190,61 @@
   background: var(--c-gold);
   box-shadow: 0 0 10px rgba(212, 168, 83, 0.5);
 }
+
+/* VALUES GRID */
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+.val-card {
+  background: var(--c-bg-card);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-lg);
+  padding: 36px 26px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: all var(--t-mid) var(--ease-out);
+}
+.val-card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--c-gold);
+  transform: scaleX(0);
+  transition: transform var(--t-mid) var(--ease-out);
+}
+.val-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--c-border-strong);
+}
+.val-card:hover::after {
+  transform: scaleX(1);
+}
+
+.val-icon {
+  font-size: 2.6rem;
+  display: block;
+  margin: 0 auto 18px;
+  transition: transform var(--t-mid) var(--ease-bounce);
+}
+.val-card:hover .val-icon {
+  transform: scale(1.15) rotate(-5deg);
+}
+.val-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--c-cream);
+  margin-bottom: 10px;
+}
+.val-text {
+  font-size: 0.855rem;
+  line-height: 1.72;
+  color: var(--c-muted);
+  text-align: center;
+  max-width: 100%;
+}
