@@ -983,5 +983,33 @@
         </div>
       </div>
     </footer>
+
+    <!-- CHATBOT -->
+    <button class="chatbot-fab" id="chatbotFab" aria-label="Open chat">
+      <div class="fab-pulse"></div>
+      <span class="fab-icon">☕</span>
+      <div class="fab-badge" id="fabBadge">1</div>
+    </button>
+    <div class="chat-panel" id="chatPanel">
+      <div class="chat-header">
+        <div class="chat-avatar">🤖</div>
+        <div class="chat-info">
+          <div class="chat-info__name">Noir AI Barista</div>
+          <div class="chat-info__status">Ask me about our story</div>
+        </div>
+      </div>
+      <div class="chat-msgs" id="chatMsgs"></div>
+      <div class="chat-input-row">
+        <input
+          class="chat-input"
+          id="chatInput"
+          placeholder="Ask me anything…"
+          autocomplete="off"
+          maxlength="200"
+        />
+        <button class="chat-send" id="chatSend">➤</button>
+      </div>
+    </div>
+    <div class="toast-wrap" id="toastWrap"></div>
   </body>
 </html>
